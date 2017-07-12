@@ -6,7 +6,7 @@
 ########################### PREPARACION DEL ENTORNO ############################
 ################################################################################
 
-#eliminar todas las previas variables del entorno
+#eliminar todas las variables previas del entorno
 rm(list = setdiff(ls(), lsf.str()))
 
 #instalacion y carga de los paquetes necesarios
