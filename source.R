@@ -1,21 +1,39 @@
-#eliminar todas las variables del entorno
-rm(list = setdiff(ls(), lsf.str()))
-
-library(readxl)
-library(MuMIn)
-library(e1071)
-library(randomForest)
-library(hybridEnsemble)
-library(kohonen)
-library(ROCR)
-library(pROC)
-
 ################################################################################
 ########################### INICIO CODIGO EJECUTABLE ###########################
 ################################################################################
 
 ################################################################################
-############################ SECTOR: CONSTRUCCION ##############################
+########################### PREPARACION DEL ENTORNO ############################
+################################################################################
+
+#eliminar todas las previas variables del entorno
+rm(list = setdiff(ls(), lsf.str()))
+
+#instalacion y carga de los paquetes necesarios
+
+if(require("readxl")==FALSE){install.packages("readxl")}
+library(readxl)
+if(require("MuMIn")==FALSE){install.packages("MuMIn")}
+library(MuMIn)
+if(require("e1071")==FALSE){install.packages("e1071")}
+library(e1071)
+if(require("randomForest")==FALSE){install.packages("randomForest")}
+library(randomForest)
+if(require("hybridEnsemble")==FALSE){install.packages("hybridEnsemble")}
+library(hybridEnsemble)
+if(require("kohonen")==FALSE){install.packages("kohonen")}
+library(kohonen)
+if(require("ROCR")==FALSE){install.packages("ROCR")}
+library(ROCR)
+if(require("pROC")==FALSE){install.packages("pROC")}
+library(pROC)
+################################################################################
+######################### FIN PREPARACION DEL ENTORNO ##########################
+################################################################################
+
+
+################################################################################
+############################ SECTOR: P. INMOBILIARIA ###########################
 ################################################################################
 
 #1. OBTENCION DEL MODELO
@@ -66,7 +84,7 @@ library(pROC)
       
       result_koh <- na.omit(main_koh(variables,datos))
 
-#4. OBTENCIÓN DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
+#4. OBTENCIÃ“N DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
       margen = 0.3
       meds_reg = main_eval(result_reg$Real, result_reg$Pred, umbral=1+margen)
       meds_rf = main_eval(result_rf$Real, result_rf$Pred, umbral=margen)
@@ -132,7 +150,7 @@ library(pROC)
       
       result_koh <- na.omit(main_koh(variables,datos))
       
-      #4. OBTENCIÓN DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
+      #4. OBTENCIÃ“N DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
       margen = 0.3
       meds_reg = main_eval(result_reg$Real, result_reg$Pred, umbral=1+margen)
       meds_rf = main_eval(result_rf$Real, result_rf$Pred, umbral=margen)
@@ -175,7 +193,7 @@ library(pROC)
 ############### FIN CLASIFICADOR UPGRADE ################
       
 ################################################################################
-############################ FIN SECTOR: CONSTRUCCION ##########################
+########################## FIN SECTOR: P. Inmobiliaria #########################
 ################################################################################
       
       
@@ -230,7 +248,7 @@ library(pROC)
       
       result_koh <- na.omit(main_koh(variables,datos))
       
-      #4. OBTENCIÓN DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
+      #4. OBTENCIÃ“N DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
       margen = 0.3
       meds_reg = main_eval(result_reg$Real, result_reg$Pred, umbral=1+margen)
       meds_rf = main_eval(result_rf$Real, result_rf$Pred, umbral=margen)
@@ -296,7 +314,7 @@ library(pROC)
       
       result_koh <- na.omit(main_koh(variables,datos))
       
-#4. OBTENCIÓN DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
+#4. OBTENCIÃ“N DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
       margen = 0.3
       meds_reg = main_eval(result_reg$Real, result_reg$Pred, umbral=1+margen)
       meds_rf = main_eval(result_rf$Real, result_rf$Pred, umbral=margen)
@@ -395,7 +413,7 @@ library(pROC)
       
       result_koh <- na.omit(main_koh(variables,datos))
       
-      #4. OBTENCIÓN DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
+      #4. OBTENCIÃ“N DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
       margen = 0.3
       meds_reg = main_eval(result_reg$Real, result_reg$Pred, umbral=1+margen)
       meds_rf = main_eval(result_rf$Real, result_rf$Pred, umbral=margen)
@@ -461,7 +479,7 @@ library(pROC)
       
       result_koh <- na.omit(main_koh(variables,datos))
       
-      #4. OBTENCIÓN DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
+      #4. OBTENCIÃ“N DE MEDIDAS DE RENDIMIENTO CON DISTINTOS UMBRALES
       margen = 0.3
       meds_reg = main_eval(result_reg$Real, result_reg$Pred, umbral=1+margen)
       meds_rf = main_eval(result_rf$Real, result_rf$Pred, umbral=margen)
